@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">Atten. Status</th>
+                            <th scope="col">Login in</th>
+                            <th scope="col">Today Worked Hours</th>
+                            <th scope="col">-</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let item of items">
+                            <!-- <td scope="col">{{item.userId}}</td>
+                            <td scope="col">{{item.id}}</td>
+                            <td scope="col">{{item.title}}</td>
+                            <td scope="col">{{item.body}}</td> -->
+
+                            <td scope="col">1</td>
+                            <td scope="col">Johne</td>
+                            <td scope="col">Xavier</td>
+                            <td scope="col">Java Developer</td>
+                            <td scope="col">
+                                <span class="badge badge-primary">Primary</span>
+                            </td>
+                            <td scope="col">{{currentTime | date:'medium'}}</td>
+                            <td scope="col">2 hrs</td>
+                            <td scope="col">
+                                <img src="https://img.icons8.com/ios/30/000000/cancel.png">
+                            </td>
+                        </tr>
+                        <ngb-pagination [(page)]="pageNumber" [pageSize]="pageSize" [collectionSize]="pageTotal">
+                        </ngb-pagination>
+                        <!--  <tr>
+                            <td scope="col">1</td>
+                            <td scope="col">Johne</td>
+                            <td scope="col">Xavier</td>
+                            <td scope="col">Java Developer</td>
+                            <td scope="col">
+                                <span class="badge badge-primary">Primary</span>
+                            </td>
+                            <td scope="col">{{currentTime | date:'medium'}}</td>
+                            <td scope="col">2 hrs</td>
+                            <td scope="col">
+                                <img src="https://img.icons8.com/ios/30/000000/cancel.png">
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
