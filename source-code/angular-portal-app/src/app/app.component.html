@@ -381,9 +381,6 @@
     <div class="modal-body">
       <!-- Default form register -->
       <form class="text-center border border-light p-5" action="#!">
-
-        <p class="h4 mb-4">Sign up</p>
-
         <div class="form-row mb-4">
           <div class="col">
             <!-- First name -->
@@ -405,15 +402,20 @@
           Optional - for two step authentication
         </small>
 
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Dropdown button
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+        <div class="form-row mb-4">
+          <div class="col text-left">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Designation</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Software Developer</button>
+                <button ngbDropdownItem>Manger</button>
+                <button ngbDropdownItem>Human Resource</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <!-- Last name -->
+            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
           </div>
         </div>
 
