@@ -5,56 +5,51 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Surname</th>
-                            <th scope="col">Designation</th>
-                            <th scope="col">Atten. Status</th>
-                            <th scope="col">Login in</th>
-                            <th scope="col">Today Worked Hours</th>
-                            <th scope="col">-</th>
+                            <th>First Name</th>
+                            <th>Surname</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Designation</th>
+                            <th>Date Of Join</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <tr *ngFor="let item of items">
-                            <!-- <td scope="col">{{item.userId}}</td>
-                            <td scope="col">{{item.id}}</td>
-                            <td scope="col">{{item.title}}</td>
-                            <td scope="col">{{item.body}}</td> -->
-
-                            <td scope="col">1</td>
-                            <td scope="col">Johne</td>
-                            <td scope="col">Xavier</td>
-                            <td scope="col">Java Developer</td>
+                        <tr *ngFor="let emp of commonService.employeeList">
+                            <td>{{emp.firstName}}</td>
+                            <td>{{emp.surName}}</td>
+                            <td>{{emp.mobile}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.designation}}</td>
+                            <td>{{emp.createDate | date:'medium'}}</td>
                             <td scope="col">
-                                <span class="badge badge-primary">Primary</span>
-                            </td>
-                            <td scope="col">{{currentTime | date:'medium'}}</td>
-                            <td scope="col">2 hrs</td>
-                            <td scope="col">
-                                <img src="https://img.icons8.com/ios/30/000000/cancel.png">
+                                <img (click)="removeEMployee(emp, removeEmployee)"
+                                    src="https://img.icons8.com/ios/30/000000/cancel.png">
                             </td>
                         </tr>
-                        <!--  <tr>
-                            <td scope="col">1</td>
-                            <td scope="col">Johne</td>
-                            <td scope="col">Xavier</td>
-                            <td scope="col">Java Developer</td>
-                            <td scope="col">
-                                <span class="badge badge-primary">Primary</span>
-                            </td>
-                            <td scope="col">{{currentTime | date:'medium'}}</td>
-                            <td scope="col">2 hrs</td>
-                            <td scope="col">
-                                <img src="https://img.icons8.com/ios/30/000000/cancel.png">
-                            </td>
-                        </tr> -->
                     </tbody>
                 </table>
-                <ngb-pagination class="paginationEle" [(page)]="pageNumber" [pageSize]="pageSize" [collectionSize]="pageTotal">
-                </ngb-pagination>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #removeEmployee let-modal>
+    <form class="text-center border border-light p-5">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Confirm Your Identity</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <!-- E-mail -->
+            <input #passwordValue name="email" type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
+                placeholder="Password">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline-dark" (click)="modal.close(passwordValue.value)">Confirm</button>
+        </div>
+    </form>
+</ng-template>
