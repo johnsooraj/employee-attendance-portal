@@ -1,13 +1,15 @@
-package com.heidelsoft.models;
+package com.heidalsoft.models;
 
-import com.heidelsoft.utils.AttendanceStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.heidalsoft.utils.AttendanceStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -23,6 +25,10 @@ public class Employee {
     private String mobile;
     private String email;
     private String designation;
-    private Set<AttendanceStatus> attendanceStatus;
 
+    @CreatedDate
+    private LocalDateTime createDate;
+
+    @JsonIgnore
+    private Set<AttendanceStatus> attendanceStatus;
 }
