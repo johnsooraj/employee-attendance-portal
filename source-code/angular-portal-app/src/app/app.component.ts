@@ -14,7 +14,9 @@ export class AppComponent {
     private modalService: NgbModal,
     private commonService: CommonService
   ) {
-
+    console.log("Hello")
+    console.log(new Date());
+    console.log(new Date().getSeconds());
   }
 
   addNewEmployeeEvent(content: any) {

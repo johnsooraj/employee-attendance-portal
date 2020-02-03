@@ -404,7 +404,7 @@
 
         <div class="form-row mb-4">
           <div class="col text-left">
-            <div ngbDropdown class="d-inline-block">
+            <div ngbDropdown (change)="designation" class="d-inline-block">
               <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Designation</button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <button ngbDropdownItem>Software Developer</button>
@@ -415,7 +415,7 @@
           </div>
           <div class="col">
             <!-- Last name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+            <input type="text" #designation id="designation" class="form-control" placeholder="Last name">
           </div>
         </div>
 
