@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommonService } from './services/common.service';
+import { Employee } from './models/employee';
+import { Observable } from 'rxjs';
+import { CustomHttpResponse } from './models/httpResponse';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +11,15 @@ import { CommonService } from './services/common.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'angular-portal-app';
+
+  newEmployee = new Employee();
 
   constructor(
     private modalService: NgbModal,
     private commonService: CommonService
   ) {
-    console.log("Hello")
-    console.log(new Date());
-    console.log(new Date().getSeconds());
   }
 
   addNewEmployeeEvent(content: any) {
@@ -30,4 +33,14 @@ export class AppComponent {
 
     });
   }
+
+  saveEmployeeSubmit() {
+    this.commonService.saveEmployee(this.newEmployee).subscribe((emp) => {
+      this.commonService.employeeList.unshift(emp);
+      this.newEmployee = new Employee();
+      this.modalService.dismissAll();
+    });
+  }
+
+
 }
