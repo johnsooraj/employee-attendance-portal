@@ -1,5 +1,6 @@
-package com.heidelsoft.models;
+package com.heidalsoft.models;
 
+import com.heidalsoft.utils.AttendanceStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,13 @@ public class AttendanceLog {
 
     @Id
     private String id;
-    private LocalDateTime loginTime;
-    private LocalDateTime logoutTime;
+    private LocalDateTime punchingTime;
+    private AttendanceStatus punchingType;
     private Employee employee;
+
+    public AttendanceLog(Employee employee, AttendanceStatus type) {
+        this.employee = employee;
+        this.punchingType = type;
+        this.punchingTime = LocalDateTime.now();
+    }
 }
