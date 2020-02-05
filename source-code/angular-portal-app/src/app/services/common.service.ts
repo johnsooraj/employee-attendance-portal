@@ -27,11 +27,13 @@ export class CommonService {
     return this.http.get('https://jsonplaceholder.typicode.com/posts?_start=0&_limit=5');
   }
 
-  fetchAllEmployees(_page: number, _limit: number): Observable<Employee[]> {
+  fetchAllEmployees(): void {
     let params = new HttpParams();
-    params = params.append('page', _page.toString());
-    params = params.append('limit', _limit.toString());
-    return this.http.get<Employee[]>(this.FETCH_ALL_EMPLOYEES, { params });
+    params = params.append('page', '0');
+    params = params.append('limit', '100');
+    this.http.get<Employee[]>(this.FETCH_ALL_EMPLOYEES, { params }).subscribe((empAll) => {
+      this.employeeList = empAll;
+    });
   }
 
   saveEmployee(data: Employee): Observable<Employee> {
@@ -44,5 +46,21 @@ export class CommonService {
       "password": password
     }
     return this.http.post<CustomHttpResponse>(this.DELETE_EMPLOYEE, body);
+  }
+
+  employeeCheckInOut(value: string, id: string) {
+    let URL = '/portal/employee/'
+    if (value == 'login') {
+      URL = URL + 'log-in';
+    } else {
+      URL = URL + 'log-out';
+    }
+    let params = new HttpParams();
+    params = params.append('id', id);
+    this.http.get<CustomHttpResponse>(URL, { params }).subscribe((response) => {
+      if (response.loggingStatus) {
+        window.alert(response.message);
+      }
+    });
   }
 }
