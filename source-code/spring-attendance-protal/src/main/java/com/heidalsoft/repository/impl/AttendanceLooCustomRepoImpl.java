@@ -6,6 +6,7 @@ import com.heidalsoft.repository.AttendanceLogCustomRepo;
 import com.heidalsoft.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -28,7 +29,9 @@ public class AttendanceLooCustomRepoImpl implements AttendanceLogCustomRepo {
     @Override
     public List<AttendanceLog> fetchAttendanceLogsByDateRange(Employee employee, LocalDateTime startDate, LocalDateTime endDate, int page, int limit) {
         Query query = new Query();
+        query.with(Sort.by("punchingTime").ascending());
         query.addCriteria(Criteria.where("employee.id").is(employee.getId()));
+        query.fields().exclude("employee");
         List<AttendanceLog> attendanceLogs = mongoTemplate.find(query, AttendanceLog.class);
         log.info(" data : {}", attendanceLogs);
         return attendanceLogs;

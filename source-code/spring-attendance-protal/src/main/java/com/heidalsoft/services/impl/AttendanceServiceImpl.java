@@ -8,6 +8,7 @@ import com.heidalsoft.repository.EmployeeRepository;
 import com.heidalsoft.services.AttendanceService;
 import com.heidalsoft.services.EmployeeService;
 import com.heidalsoft.utils.AttendanceException;
+import com.heidalsoft.utils.AttendanceLogModel;
 import com.heidalsoft.utils.AttendanceLogRequest;
 import com.heidalsoft.utils.AttendanceStatus;
 import lombok.extern.slf4j.Slf4j;
@@ -42,6 +43,8 @@ public class AttendanceServiceImpl implements AttendanceService {
     public Object attendanceDeatilsByEmployeeIdAndDate(AttendanceLogRequest logRequest) throws AttendanceException {
         Employee employee = employeeRepository.findById(logRequest.getEmployeeId()).orElseThrow(AttendanceException::new);
         List<AttendanceLog> attendanceLogs = null;
+        AttendanceLogModel logModel = new AttendanceLogModel();
+
         Duration duration = Duration.between(logRequest.getStartDate(), logRequest.getEndDate());
         log.info(duration.toDays() + "");
         attendanceLogs = attendanceLogCustomRepo.fetchAttendanceLogsByDateRange(employee, logRequest.getStartDate(), logRequest.getEndDate(), 0, 10);
@@ -52,7 +55,10 @@ public class AttendanceServiceImpl implements AttendanceService {
         } else if (duration.toDays() <= 28) {
             log.info("fetch attendance log for month start : {}, end : {}", logRequest.getStartDate(), logRequest.getEndDate());
         }
-        return attendanceLogs;
+        logModel.setAttendanceLogList(attendanceLogs);
+        logModel.setFirstLogin(attendanceLogs.get(0));
+        logModel.setLastLogin(attendanceLogs.get(attendanceLogs.size() - 1));
+        return logModel;
     }
 
 }
