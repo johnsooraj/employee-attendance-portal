@@ -3,7 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from '../models/employee';
 import { CustomHttpResponse } from '../models/httpResponse';
-import { url } from 'inspector';
 
 @Injectable({
   providedIn: 'root'
@@ -58,8 +57,8 @@ export class CommonService {
     }
     let params = new HttpParams();
     params = params.append('id', id);
-    this.http.get<CustomHttpResponse>(URL, {params}).subscribe((response) => {
-      if(response.loggingStatus){
+    this.http.get<CustomHttpResponse>(URL, { params }).subscribe((response) => {
+      if (response.loggingStatus) {
         window.alert(response.message);
       }
     });
