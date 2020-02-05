@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="form-row row">
+        <div class="form-row mb-4">
+            <div class="col text-left">
+                <div ngbDropdown (change)="designationChange()" class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1"
+                        ngbDropdownToggle>{{dropdownValue.firstName ? dropdownValue.firstName : 'Select Employee Name'}}</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button class="dropdown-item" *ngFor="let emp of commonService.employeeList"
+                            (click)="employeeSelection(emp)">{{emp.firstName}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" (click)="employeeLogin('login')"
+                class="btn btn-primary btn-lg btn-block">Check-In</button>
+        </div>
+        <div class="col-md-6">
+            <button type="button" (click)="employeeLogin('logout')"
+                class="btn btn-secondary btn-lg btn-block">Check-Out</button>
+        </div>
+    </div>
+</div>

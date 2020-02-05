@@ -25,9 +25,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.commonService.fetchAllEmployees(0, 100).subscribe((data) => {
-      this.commonService.employeeList = data;
-    });
+    // load data in common service
+    this.commonService.fetchAllEmployees();
   }
 
   removeEMployee(empdata: Employee, content: any) {
