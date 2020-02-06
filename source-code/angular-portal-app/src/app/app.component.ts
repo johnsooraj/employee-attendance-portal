@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute, ActivationEnd, NavigationStart } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CommonService } from './services/common.service';
 import { Employee } from './models/employee';
-import { Observable } from 'rxjs';
-import { CustomHttpResponse } from './models/httpResponse';
+import { CommonService } from './services/common.service';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +15,35 @@ export class AppComponent {
   title = 'angular-portal-app';
 
   newEmployee = new Employee();
+  viewBreadcrumb = false;
 
   constructor(
     private modalService: NgbModal,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
   ) {
+    /* this.router.events.subscribe((event) => {
+    });
+ */
+    this.router.events.pipe(
+      filter(e => (e instanceof NavigationStart))
+    ).subscribe((navURL: NavigationStart) => {
+      navURL.url == '/attendance' ? this.viewBreadcrumb = false : this.viewBreadcrumb = true;
+    });
+
+    /*  this.activeRoute.url.subscribe((url) => {
+       console.log('url', url)
+     });
+ 
+     this.router.events
+       .pipe(
+         filter(e => (e instanceof ActivationEnd) && (Object.keys(e.snapshot.params).length > 0)),
+         map(e => e instanceof ActivationEnd ? e.snapshot.params : {})
+       )
+       .subscribe(params => {
+         console.log('param', params);
+       }); */
   }
 
   openNgbModal(content: any, scrollable: boolean) {
