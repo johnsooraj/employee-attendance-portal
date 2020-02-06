@@ -15,6 +15,35 @@ As the server exposing the API's for each operation with high security, the syst
 - Less dependency
 - Developed with latest technologies, easy to modify
 
-### Secrenshots
 
-![alt text](https://user-images.githubusercontent.com/23372515/73907558-c8589c00-48cc-11ea-8100-8f5faa13d456.png)
+> #### Solution stack
+
+![alt text](https://user-images.githubusercontent.com/23372515/73955675-b9ec9d80-4929-11ea-8370-be21813999dc.jpeg)
+
+> #### Page 1 : Home Page
+
+![alt text](https://user-images.githubusercontent.com/23372515/73956716-59f6f680-492b-11ea-9e60-1e9c5ea542b6.png)
+
+> #### Page 2 : Add Employee
+
+![alt text](https://user-images.githubusercontent.com/23372515/73956760-67ac7c00-492b-11ea-83b3-039f3827963c.png)
+
+> #### Page 3 : Remove Employee
+
+![alt text](https://user-images.githubusercontent.com/23372515/73956791-7430d480-492b-11ea-8470-faa50fa49876.png)
+
+> #### Page 4 : Employee Check-in/Check-out
+
+![alt text](https://user-images.githubusercontent.com/23372515/73956834-84e14a80-492b-11ea-870a-9ebfb0eb320f.png)
+
+> #### Page 5 : HR - View Employee Details
+
+![alt text](https://user-images.githubusercontent.com/23372515/73956901-9d516500-492b-11ea-8142-4310d2fad60e.png)
+
+> #### Page 6 : HR - View Attendance Log for Employee
+
+![alt text](https://user-images.githubusercontent.com/23372515/73956948-acd0ae00-492b-11ea-9349-a037399a12fb.png)
+
+> #### Page 7 : HR - View Available Employees
+
+![alt text](https://user-images.githubusercontent.com/23372515/73956980-b6f2ac80-492b-11ea-97bf-72ef9ebea031.png)
