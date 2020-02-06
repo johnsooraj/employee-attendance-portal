@@ -14,3 +14,7 @@ As the server exposing the API's for each operation with high security, the syst
 - Platform independent
 - Less dependency
 - Developed with latest technologies, easy to modify
+
+### Secrenshots
+
+![alt text](https://user-images.githubusercontent.com/23372515/73907558-c8589c00-48cc-11ea-8100-8f5faa13d456.png)
