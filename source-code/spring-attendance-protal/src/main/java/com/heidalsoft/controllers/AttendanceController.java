@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
+import java.util.ArrayList;
 
 @RestController
 public class AttendanceController {
@@ -65,11 +66,16 @@ public class AttendanceController {
     @PostMapping("/attendance/log")
     public Object fetchEmployeeAttendanceDetailsByUserId(@RequestBody AttendanceLogRequest attendanceLogRequest) {
         try {
-            return attendanceService.attendanceDeatilsByEmployeeIdAndDate(attendanceLogRequest);
+            return attendanceService.attendanceDetailsByEmployeeIdAndDate(attendanceLogRequest);
         } catch (AttendanceException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @GetMapping("/available-staffs")
+    public Object fetchAvailableStaffs() {
+        return attendanceService.fetchAvailableEmployees();
     }
 
 

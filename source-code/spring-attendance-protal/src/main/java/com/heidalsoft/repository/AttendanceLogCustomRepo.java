@@ -9,4 +9,6 @@ import java.util.List;
 public interface AttendanceLogCustomRepo {
 
     List<AttendanceLog> fetchAttendanceLogsByDateRange(Employee employee, LocalDateTime startDate, LocalDateTime endDate, int page, int limit);
+
+    List<AttendanceLog> fetchAvailableEmployees(LocalDateTime startTime, LocalDateTime endTime);
 }

@@ -4,6 +4,6 @@ import { LogginModal } from './logginModal';
 export class AttendanceLogReport {
     firstLogin: LogginModal;
     lastLogin: LogginModal;
-    attendanceLog: LogginModal[];
-    totalWorkingHours: number
+    attendanceLogList: LogginModal[];
+    totlaWorkingHours: number
 }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Employee } from '../models/employee';
 import { CustomHttpResponse } from '../models/httpResponse';
 import { AttendanceLogReport } from '../models/attendanceLogReport';
+import { LogginModal } from '../models/logginModal';
 
 
 @Injectable({
@@ -11,12 +12,14 @@ import { AttendanceLogReport } from '../models/attendanceLogReport';
 })
 export class CommonService {
 
-  FETCH_ALL_EMPLOYEES = 'http://www.mocky.io/v2/5e3a80e42f0000793b56c34b';
+  FETCH_ALL_EMPLOYEES = '/portal/employees';
   ADD_NEW_EMPLOYEE = '/portal/employee';
   FETCH_ATTENDANCE_LOG_BY_EMP_ID = '/portal/attendance/log';
   CHECK_IN_EMPLOYEE = '/portal/employees';
   CHECK_OUT_EMPLOYEE = '/portal/employees';
   DELETE_EMPLOYEE = '/portal/employee/remove';
+  FETCH_ATTENDANCE_LOG = '/portal/attendance/log';
+  FETCH_AVAILABLE_EMPLOYEES = '/portal/available-staffs';
 
   MOCKY_GETALL_LOG_OF_EMPLOYEE = "http://www.mocky.io/v2/5e3a8f132f00005b4b56c3db";
   MOCKY_GETALL_LOG_OF_EMPLOYEE2 = "http://www.mocky.io/v2/5e3a9b782f0000804b56c45c";
@@ -54,10 +57,17 @@ export class CommonService {
     return this.http.post<CustomHttpResponse>(this.DELETE_EMPLOYEE, body);
   }
 
-  fetchAttendanceReportForEmployee(): Observable<AttendanceLogReport> {
-    return this.http.get<AttendanceLogReport>(this.MOCKY_GETALL_LOG_OF_EMPLOYEE2);
+  fetchAttendanceReportForEmployee(empId: String, startDate: string, endDate: string): Observable<AttendanceLogReport> {
+    let body = {
+      "page": 0,
+      "limit": 100,
+      "employeeId": empId,
+      "startDate": startDate,
+      "endDate": endDate
+    }
+    return this.http.post<AttendanceLogReport>(this.FETCH_ATTENDANCE_LOG, body);
   }
-  
+
   employeeCheckInOut(value: string, id: string) {
     let URL = '/portal/employee/'
     if (value == 'login') {
@@ -73,5 +83,9 @@ export class CommonService {
       }
     });
   }
-  
+
+  fetchAvailableStaffInOffice(): Observable<LogginModal[]> {
+    return this.http.get<LogginModal[]>(this.FETCH_AVAILABLE_EMPLOYEES);
+  }
+
 }

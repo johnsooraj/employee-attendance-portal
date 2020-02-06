@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Data
 @AllArgsConstructor
@@ -25,5 +26,18 @@ public class AttendanceLog {
         this.employee = employee;
         this.punchingType = type;
         this.punchingTime = LocalDateTime.now();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AttendanceLog log = (AttendanceLog) o;
+        return punchingTime.equals(log.punchingTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(punchingTime);
     }
 }
