@@ -358,19 +358,20 @@
     </a>
     <ul *ngIf="viewBreadcrumb" class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" (click)="addNewEmployeeEvent(addNewEmployee)">Add New Employee</a>
+        <a class="nav-link" (click)="openNgbModal(addNewEmployee)">Add New Employee</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Avilable Staffs</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Generate Report</a>
+        <a class="nav-link" (click)="openNgbModal(reportWindow)">Employees Deatils and Report</a>
       </li>
     </ul>
   </nav>
   <div>
     <router-outlet></router-outlet>
   </div>
+
+  <ng-template #reportWindow let-modal>
+    <app-report></app-report>
+  </ng-template>
 
   <ng-template #addNewEmployee let-modal>
     <form class="text-center border border-light p-5">

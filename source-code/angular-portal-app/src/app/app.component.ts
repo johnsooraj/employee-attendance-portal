@@ -46,11 +46,12 @@ export class AppComponent {
        }); */
   }
 
-  addNewEmployeeEvent(content: any) {
+  openNgbModal(content: any, scrollable: boolean) {
     this.modalService.open(content, {
       ariaLabelledBy: 'modal-basic-title',
       size: 'lg',
-      centered: false
+      centered: false,
+      scrollable: true
     }).result.then((result) => {
 
     }, (reason) => {

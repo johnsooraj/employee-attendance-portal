@@ -1,0 +1,152 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Employees Overview</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <ngb-tabset type="pills" (tabChange)="reportTabChangeEvent($event)">
+                <ngb-tab title="Employee Status" id="singleEmployeeStatus">
+                    <ng-template ngbTabContent>
+                        <div class="container">
+                            <div class="row modalTabContent">
+                                <div class="col-md-12">
+                                    <form>
+                                        <div class="form-group row">
+                                            <div ngbDropdown (change)="designationChange()" class="d-inline-block">
+                                                <button class="btn btn-outline-primary" id="dropdownBasic1"
+                                                    ngbDropdownToggle>Choose Designation</button>
+                                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                    <div *ngFor="let emp of commonService.employeeList">
+                                                        <button ngbDropdownItem
+                                                            (click)="viewEmployeeDetails(emp)">{{emp.firstName}}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control-plaintext"
+                                                    id="firstName" value="{{employeeData.firstName}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="surName" class="col-sm-2 col-form-label">Surname</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control-plaintext" id="surName"
+                                                    value="{{employeeData.surName}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="mobile" class="col-sm-2 col-form-label">Mobile</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control-plaintext" id="mobile"
+                                                    value="{{employeeData.mobile}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control-plaintext" id="email"
+                                                    value="{{employeeData.email}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="Date of Join" class="col-sm-2 col-form-label">Date of
+                                                Join</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control-plaintext"
+                                                    id="createDate" value="{{employeeData.createDate | date:'short'}}">
+                                            </div>
+                                        </div>
+                                        <div *ngIf="singleEmployeeAttendanceData.lastLogin">
+                                            <div class="form-group row">
+                                                <label for="Date of Join" class="col-sm-4 col-form-label">Today's
+                                                    Working
+                                                    Hours</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" readonly class="form-control-plaintext"
+                                                        id="createDatew" value="10 Hr">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="Date of Join" class="col-sm-4 col-form-label">Employee
+                                                    Avilability</label>
+                                                <div class="col-sm-8">
+                                                    <div
+                                                        *ngIf="singleEmployeeAttendanceData.lastLogin.punchingType == 'PUNCHING_IN'">
+                                                        <span class="badge badge-success">Avilable</span>
+                                                    </div>
+                                                    <div
+                                                        *ngIf="singleEmployeeAttendanceData.lastLogin.punchingType == 'PUNCHING_OUT'">
+                                                        <span class="badge badge-danger">Out Of Office</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Work Hours Report" [disabled]="!singleEmployeeAttendanceData.lastLogin"
+                    id="timeSpendReport">
+                    <ng-template ngbTabContent>
+                        <div class="container">
+                            <div class="row modalTabContent">
+                                <div class="col-md-6">
+                                    <form *ngIf="singleEmployeeAttendanceData.attendanceLog">
+                                        <div class="form-group row"
+                                            *ngFor="let log of singleEmployeeAttendanceData.attendanceLog">
+                                            <label for="inputPassword"
+                                                class="col-sm-6 col-form-label">{{log.punchingTime | date:'short'}}</label>
+                                            <div class="col-sm-6">
+                                                <span *ngIf="log.punchingType == 'PUNCHING_IN'"
+                                                    class="badge badge-success">Check-In</span>
+                                                <span *ngIf="log.punchingType == 'PUNCHING_OUT'"
+                                                    class="badge badge-danger">Check-Out</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    hello
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Avilable Employees" id="avilableEmployees">
+                    <ng-template ngbTabContent>
+                        <div class="container">
+                            <div class="row modalTabContent">
+                                <div class="col-md-12">
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control-plaintext"
+                                                    id="staticEmail" value="email@example.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="inputPassword"
+                                                    placeholder="Password">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+</div>
