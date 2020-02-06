@@ -15,6 +15,8 @@ As the server exposing the API's for each operation with high security, the syst
 - Less dependency
 - Developed with latest technologies, easy to modify
 
-### Secrenshots
+### Screenshots
 
-![alt text](https://user-images.githubusercontent.com/23372515/73907558-c8589c00-48cc-11ea-8100-8f5faa13d456.png){:height="700px" width="400px"}
+> #### Solution stack
+
+![alt text](https://user-images.githubusercontent.com/23372515/73955675-b9ec9d80-4929-11ea-8370-be21813999dc.jpeg)
