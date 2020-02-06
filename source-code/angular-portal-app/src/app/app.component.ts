@@ -23,35 +23,18 @@ export class AppComponent {
     private router: Router,
     private activeRoute: ActivatedRoute
   ) {
-    /* this.router.events.subscribe((event) => {
-    });
- */
     this.router.events.pipe(
       filter(e => (e instanceof NavigationStart))
     ).subscribe((navURL: NavigationStart) => {
       navURL.url == '/attendance' ? this.viewBreadcrumb = false : this.viewBreadcrumb = true;
     });
-
-    /*  this.activeRoute.url.subscribe((url) => {
-       console.log('url', url)
-     });
- 
-     this.router.events
-       .pipe(
-         filter(e => (e instanceof ActivationEnd) && (Object.keys(e.snapshot.params).length > 0)),
-         map(e => e instanceof ActivationEnd ? e.snapshot.params : {})
-       )
-       .subscribe(params => {
-         console.log('param', params);
-       }); */
   }
 
   openNgbModal(content: any, scrollable: boolean) {
     this.modalService.open(content, {
       ariaLabelledBy: 'modal-basic-title',
       size: 'lg',
-      centered: false,
-      scrollable: true
+      centered: false
     }).result.then((result) => {
 
     }, (reason) => {

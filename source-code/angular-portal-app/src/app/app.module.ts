@@ -17,7 +17,7 @@ import { AttendanceComponent } from './components/attendance/attendance.componen
   declarations: [
     AppComponent,
     HomeComponent,
-    ReportComponent
+    ReportComponent,
     AttendanceComponent
   ],
   imports: [
