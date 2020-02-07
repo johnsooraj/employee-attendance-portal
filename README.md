@@ -18,7 +18,7 @@ As the server exposing the API's for each operation with high security, the syst
 
 > #### Solution stack
 
-![alt text](https://user-images.githubusercontent.com/23372515/73955675-b9ec9d80-4929-11ea-8370-be21813999dc.jpeg)
+![alt text](https://user-images.githubusercontent.com/23372515/74047910-21bcea00-49f7-11ea-817c-01b54f657f67.jpeg)
 
 > #### Page 1 : Home Page
 
