@@ -14,6 +14,7 @@ As the server exposing the API's for each operation with high security, the syst
 - Platform independent
 - Less dependency
 - Developed with latest technologies, easy to modify
+- Multiple stack
 
 
 > #### Solution stack

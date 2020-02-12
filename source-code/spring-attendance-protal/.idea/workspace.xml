@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a91c45f5-f89d-4967-961e-df566efaf2cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../angular-portal-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-portal-app/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular-portal-app/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-portal-app/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular-portal-app/src/app/components/report/report.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-portal-app/src/app/components/report/report.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular-portal-app/src/app/components/report/report.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-portal-app/src/app/components/report/report.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular-portal-app/src/app/models/attendanceLogReport.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-portal-app/src/app/models/attendanceLogReport.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular-portal-app/src/app/services/common.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-portal-app/src/app/services/common.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/heidalsoft/controllers/AttendanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/heidalsoft/controllers/AttendanceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/heidalsoft/models/AttendanceLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/heidalsoft/models/AttendanceLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/heidalsoft/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/heidalsoft/models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/heidalsoft/repository/AttendanceLogCustomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/heidalsoft/repository/AttendanceLogCustomRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/heidalsoft/repository/impl/AttendanceLooCustomRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/heidalsoft/repository/impl/AttendanceLooCustomRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/heidalsoft/services/AttendanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/heidalsoft/services/AttendanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/heidalsoft/services/impl/AttendanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/heidalsoft/services/impl/AttendanceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-attendance-protal.kotlin_module" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +89,7 @@
       <workItem from="1580393663567" duration="1339000" />
       <workItem from="1580895604165" duration="1556000" />
       <workItem from="1580968352937" duration="16962000" />
+      <workItem from="1581050940980" duration="1334000" />
     </task>
     <servers />
   </component>
