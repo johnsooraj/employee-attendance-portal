@@ -1,6 +1,10 @@
 # Introduction
 Attendance register portal for track, maintain, accounting of employees in a organisation. As the first phase of the project, we planned to implement the attendance track, and calculation of total working hours against a employee. Currently there two kind of users are able to access the feature. One employees and other one is human resource team. Employee can check-in and check-out from the interface given. HR team can view all employees, add new one, remove one, view status of each employee.
 
+- Login HR
+- Punch IN and Punch OUT employees
+- View Total Working hours.
+
 ## Who's it for?
 Any organisation having move than 5 employee can use this system. The simplified user interface is able to use any non-technical person in all level.
 
